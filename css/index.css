@@ -1,0 +1,117 @@
+#wrapper #header .headTop {
+  background-color: #eaeaea;
+  height: 30px;
+}
+#wrapper #header .headTop .headTopMain {
+  width: 1200px;
+  line-height: 30px;
+  margin: 0 auto;
+}
+#wrapper #header .headTop .headTopMain::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+#wrapper #header .headTop .headTopMain .left h5 {
+  float: left;
+}
+#wrapper #header .headTop .headTopMain .left p {
+  float: left;
+}
+#wrapper #header .headTop .headTopMain .left p a:first-child {
+  border-right: 1px solid black;
+  padding-right: 5px;
+}
+#wrapper #header .headTop .headTopMain .right {
+  float: right;
+}
+#wrapper #header .headTop .headTopMain .right nav {
+  font-size: 0;
+}
+#wrapper #header .headTop .headTopMain .right nav a {
+  font-size: 1rem;
+  border-right: 1px solid black;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+#wrapper #header .headTop .headTopMain .right nav a:last-child {
+  border-right: none;
+}
+#wrapper #header .headBottom .headBottomMain {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+#wrapper #header .headBottom .headBottomMain .logo {
+  width: auto;
+}
+#wrapper #header .headBottom .headBottomMain .logo a img {
+  width: 175px;
+  height: 56px;
+  margin: 25px 45px;
+}
+#wrapper #header .headBottom .headBottomMain .search {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#wrapper #header .headBottom .headBottomMain .search input:first-child {
+  width: 490px;
+  height: 32px;
+  padding: 0 4px;
+  border: 3px solid #ea4a36;
+}
+#wrapper #header .headBottom .headBottomMain .search input:last-child {
+  width: 68px;
+  height: 32px;
+  color: #fff;
+  background-color: #ea4a36;
+  border: none;
+}
+#wrapper #header .headBottom .headBottomMain .search input::-webkit-input-placeholder {
+  color: yellowgreen;
+}
+#wrapper #navWrapper {
+  border-bottom: 2px solid #ea4a36;
+}
+#wrapper #navWrapper #navWrapperMain {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#wrapper #navWrapper #navWrapperMain a {
+  margin: 0px 22px;
+  color: #333;
+}
+#wrapper #navWrapper #navWrapperMain a:first-child {
+  width: 210px;
+  height: 50px;
+  background-color: #e1251b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+}
+#content .contentMain {
+  width: 1200px;
+  margin: 15px auto 0 auto;
+}
+#content .contentMain #navPath {
+  font-size: 0;
+  padding: 9px 15px 9px 0;
+}
+#content .contentMain #navPath a {
+  font-size: 12px;
+}
+#content .contentMain #navPath i {
+  font-size: 12px;
+  padding: 0 5px;
+}

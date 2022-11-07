@@ -1,0 +1,152 @@
+@import './mixins/clear.less';
+
+#wrapper {
+    #header {
+        .headTop {
+            background-color: #eaeaea;
+            height: 30px;
+
+            .headTopMain {
+                width: 1200px;
+                line-height: 30px;
+                margin: 0 auto;
+                // overflow: hidden;
+                .clearfix();
+
+                .left {
+                    h5 {
+                        float: left;
+                    }
+
+                    p {
+                        float: left;
+
+                        a {
+                            &:first-child {
+                                border-right: 1px solid black;
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .right {
+                    float: right;
+
+                    nav {
+                        font-size: 0;
+
+                        a {
+                            font-size: 1rem;
+                            border-right: 1px solid black;
+                            padding-left: 0.2rem;
+                            padding-right: 0.2rem;
+
+                            &:last-child {
+                                border-right: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .headBottom {
+            .headBottomMain {
+                width: 1200px;
+                height: auto;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: nowrap;
+
+                .logo {
+                    width: auto;
+
+                    a {
+                        img {
+                            width: 175px;
+                            height: 56px;
+                            margin: 25px 45px;
+                        }
+                    }
+                }
+
+                .search {
+                    width: auto;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    input {
+
+                        &:first-child {
+                            width: 490px;
+                            height: 32px;
+                            padding: 0 4px;
+                            border: 3px solid #ea4a36;
+                        }
+
+                        &:last-child {
+                            width: 68px;
+                            height: 32px;
+                            color: #fff;
+                            background-color: #ea4a36;
+                            border: none;
+                        }
+
+                        &::-webkit-input-placeholder {
+                            color: yellowgreen;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #navWrapper {
+        border-bottom: 2px solid #ea4a36;
+        #navWrapperMain {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            a {
+                margin: 0px 22px;
+                color: #333;
+
+                &:first-child {
+                    width: 210px;
+                    height: 50px;
+                    background-color: #e1251b;
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+}
+
+#content {
+    .contentMain {
+        width: 1200px;
+        margin: 15px auto 0 auto;
+        #navPath {
+            font-size: 0;
+            padding: 9px 15px 9px 0;
+            a {
+                font-size: 12px;
+                
+            }
+            i {
+                font-size: 12px;
+                padding: 0 5px;
+            }
+        }
+    }
+}
