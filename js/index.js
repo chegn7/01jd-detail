@@ -225,12 +225,14 @@ window.onload = function () {
                 // 默认会点第一个值
                 if (j == 0) {
                     marks[i] = dds[j].innerText;
+                    dls[i].setAttribute("priceChange", goodData.goodsDetail.crumbData[i].data[0].changePrice);
                 }
                 dds[j].onclick = function()  {
                     for (let other of dds) {
                         other.style.color = "#666";
                     }
                     dds[j].style.color = "red";
+                    dls[i].setAttribute("priceChange", goodData.goodsDetail.crumbData[i].data[j].changePrice);
                     marks[i] = dds[j].innerText;
                     createSelectedByMarks(marks, document.querySelector("#rightBottom"));
                 };
@@ -241,6 +243,7 @@ window.onload = function () {
 
     // 根据marks数组创建/修改selected标签
     function createSelectedByMarks(marks, rightBottom) {
+        priceChange(marks);
         let selected = rightBottom.querySelector("#selected");
         if (selected != null) rightBottom.removeChild(selected);
         selected = document.createElement("div");
@@ -269,6 +272,8 @@ window.onload = function () {
             aNode.onclick = () => {
                 let deletedIdx = parseInt(aNode.getAttribute("idx"));
                 marks[deletedIdx] = null;
+                let dls = document.querySelectorAll("#rightBottom > div.selection > dl");
+                dls[deletedIdx].setAttribute("priceChange", goodData.goodsDetail.crumbData[deletedIdx].data[0].changePrice)
                 // 重绘selected
                 createSelectedByMarks(marks, rightBottom);
                 // 恢复该行标签的颜色
@@ -280,5 +285,15 @@ window.onload = function () {
             }
         }
     }
-
+    // 价格变化
+    function priceChange() {
+        let priceNode = document.querySelector("#rightTop > div.priceWrap > div.priceTop > div.price > span:nth-child(2)");
+        let price = goodData.goodsDetail.price;
+        // 在dl上记录价格变化。
+        let dls = document.querySelectorAll("#rightBottom > div.selection > dl");
+        for (let dl of dls) {
+            price += parseInt(dl.getAttribute("priceChange"));
+        }
+        priceNode.innerText = price;
+    }
 }
