@@ -122,6 +122,9 @@
 }
 #content .contentMain #center {
   margin: 5px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 #content .contentMain #center #left {
   width: 400px;
@@ -339,4 +342,111 @@
 }
 #content .contentMain #center #right #rightBottom .selection dl dd:first-of-type {
   color: red;
+}
+#content .contentMain #center #right #rightBottom .cart::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+#content .contentMain #center #right #rightBottom .cart .count {
+  width: 55px;
+  height: 37px;
+  float: left;
+  border: 1px solid #ddd;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+#content .contentMain #center #right #rightBottom .cart .count input {
+  border: none;
+  height: 35px;
+  width: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+#content .contentMain #center #right #rightBottom .cart button {
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 36px;
+  font-size: 16px;
+  background: #e1251b;
+  color: #fff;
+  border: none;
+}
+#content .contentMain .goodsDetailWrap {
+  width: 1200px;
+  margin: 30px auto 0;
+}
+#content .contentMain .goodsDetailWrap .leftAside {
+  width: 212px;
+  border: 1px solid #ccc;
+}
+#content .contentMain .goodsDetailWrap .leftAside .top {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+#content .contentMain .goodsDetailWrap .leftAside .top::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+#content .contentMain .goodsDetailWrap .leftAside .top h4 {
+  float: left;
+  height: 40px;
+  background: #fff;
+  line-height: 40px;
+  text-align: center;
+  width: 105px;
+  border: 1px solid #ccc;
+}
+#content .contentMain .goodsDetailWrap .leftAside .top h4.active {
+  border-top: 3px solid #e1251b;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom {
+  padding: 10px;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList1 li {
+  width: 50%;
+  border-bottom: 1px dashed #ededed;
+  line-height: 28px;
+  float: left;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 {
+  margin: 5px 0 15px;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 li {
+  border-bottom: 1px solid #ededed;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 li img {
+  width: 152px;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 li .title {
+  font-size: 16px;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 li .price {
+  font-size: 16px;
+  color: #c81623;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 li .button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+#content .contentMain .goodsDetailWrap .leftAside .bottom div.active ul.goodsList2 li .button a {
+  border: 1px solid #8c8c8c;
+  text-decoration: none;
+  color: #8c8c8c;
+  padding: 2px 14px;
+  line-height: 18px;
 }

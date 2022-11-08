@@ -227,7 +227,7 @@ window.onload = function () {
                     marks[i] = dds[j].innerText;
                     dls[i].setAttribute("priceChange", goodData.goodsDetail.crumbData[i].data[0].changePrice);
                 }
-                dds[j].onclick = function()  {
+                dds[j].onclick = function () {
                     for (let other of dds) {
                         other.style.color = "#666";
                     }
@@ -295,5 +295,18 @@ window.onload = function () {
             price += Number(dl.getAttribute("priceChange"));
         }
         priceNode.innerText = price;
+    }
+
+    // chekbox测试
+    checkbox();
+    function checkbox() {
+        let box = document.querySelector("#content > div > div.goodsDetailWrap > div > div > input[type=checkbox]");
+        box.onclick = () => {
+            if (box.checked) {
+                console.log("yes");
+            } else {
+                console.log("no");
+            }
+        }
     }
 }

@@ -139,6 +139,7 @@
         width: 1200px;
         margin: 15px auto 0 auto;
         .clearfix();
+
         #navPath {
             font-size: 0;
             padding: 9px 15px 9px 0;
@@ -156,6 +157,9 @@
 
         #center {
             margin: 5px 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
             #left {
                 width: 400px;
@@ -206,6 +210,7 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
                     a {
                         width: 10px;
                         height: 54px;
@@ -217,9 +222,11 @@
                         line-height: 54px;
                         z-index: 3;
                     }
+
                     #picList {
                         overflow: hidden;
                         z-index: 2;
+
                         ul {
                             list-style: none;
                             width: 372px;
@@ -229,19 +236,21 @@
                             display: flex;
                             align-items: center;
                             transition: 0.5s;
+
                             li {
                                 width: 50px;
                                 height: 50px;
                                 border: 1px solid #ccc;
                                 display: inline-block;
                                 margin-right: 20px;
+
                                 img {
-                                     
+
                                     width: 50px;
                                     height: 50px;
-                                    
+
                                     padding: 2px;
-                                    
+
                                     aspect-ratio: auto;
                                 }
                             }
@@ -253,101 +262,125 @@
             #right {
                 width: 700px;
                 float: right;
+
                 #rightTop {
                     h3 {
                         font-size: 14px;
                         line-height: 21px;
                         margin-top: 15px;
                     }
+
                     p {
                         color: #e12228;
                         margin-top: 15px;
                     }
+
                     .priceWrap {
                         margin-top: 10px;
                         line-height: 28px;
                         background: #fee9ec;
                         padding: 7px;
+
                         .priceTop {
                             .clearfix();
-                            > span {
+
+                            >span {
                                 margin-right: 15px;
                                 float: left;
                             }
+
                             .price {
                                 float: left;
-                                > span:nth-child(2) {
+
+                                >span:nth-child(2) {
                                     font-size: 24px;
                                     color: #cc1122;
                                     font-weight: bold;
                                 }
-                                > span {
+
+                                >span {
                                     font-size: 16px;
+
                                     a {
                                         font-size: 12px;
                                         color: #cc1122;
                                     }
                                 }
                             }
+
                             .commentCount {
                                 float: right;
-                                > span {
+
+                                >span {
                                     color: gray;
                                 }
                             }
                         }
+
                         .priceBottom {
                             width: 520px;
-                        line-height: 28px;
-                        span {
-                            color: #999;
-                            &:nth-child(1) {
-                                // 促销
-                                margin-right: 15px;
+                            line-height: 28px;
+
+                            span {
+                                color: #999;
+
+                                &:nth-child(1) {
+                                    // 促销
+                                    margin-right: 15px;
+                                }
+
+                                &:nth-child(2) {
+                                    // 加价购
+                                    background-color: #c81623;
+                                    ;
+                                    color: #fff;
+                                    padding: 3px;
+                                }
                             }
-                            &:nth-child(2) {
-                                // 加价购
-                                background-color: #c81623;;
-                                color: #fff;
-                                padding: 3px;
-                            }
-                        }
                         }
                     }
+
                     .support {
                         padding-bottom: 5px;
                         margin-top: 10px;
                         line-height: 28px;
+
                         span {
                             &:first-child {
                                 margin-right: 15px;
                             }
+
                             &:last-child {
-                                color:#999;
+                                color: #999;
                             }
                         }
                     }
+
                     .deliver {
                         border-bottom: 1px solid #ededed;
                         padding-bottom: 5px;
                         line-height: 28px;
+
                         span {
                             &:first-child {
                                 margin-right: 15px;
                             }
+
                             &:last-child {
-                                color:#999;
+                                color: #999;
                             }
                         }
                     }
 
                 }
+
                 #rightBottom {
                     margin-top: 10px;
                     line-height: 28px;
-                    
+
                     #selected {
                         .clearfix();
+
                         #mark {
                             float: left;
                             height: 30px;
@@ -357,6 +390,7 @@
                             margin-right: 20px;
                             text-align: center;
                             line-height: 30px;
+
                             a {
                                 color: red;
                                 margin-left: 20px;
@@ -364,15 +398,18 @@
                         }
 
                     }
+
                     .selection {
                         dl {
                             margin-top: 13px;
                             margin-bottom: 13px;
                             .clearfix();
+
                             dt {
                                 margin-right: 15px;
                                 float: left;
                             }
+
                             dd {
                                 float: left;
                                 margin-right: 5px;
@@ -382,17 +419,137 @@
                                 border-color: #eee #bbb #bbb #eee;
                                 border-width: 1px;
                                 border-style: solid;
+
                                 &:first-of-type {
                                     color: red;
                                 }
                             }
                         }
                     }
-                    .cart {
 
+                    .cart {
+                        .clearfix();
+
+                        .count {
+                            width: 55px;
+                            height: 37px;
+                            float: left;
+                            border: 1px solid #ddd;
+                            color: #555;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            input {
+                                border: none;
+                                height: 35px;
+                                width: 50px;
+                                font-size: 20px;
+                                text-align: center;
+                            }
+
+                            margin-right: 15px;
+                        }
+
+                        button {
+                            padding-left: 25px;
+                            padding-right: 25px;
+                            height: 36px;
+                            font-size: 16px;
+                            background: #e1251b;
+                            color: #fff;
+                            border: none;
+                        }
                     }
                 }
             }
         }
+
+        .goodsDetailWrap {
+            width: 1200px;
+            margin: 30px auto 0;
+
+            .leftAside {
+                width: 212px;
+                border: 1px solid #ccc;
+                
+                .top {
+                    .clearfix();
+                    overflow: hidden;
+                    white-space: nowrap;
+                    display: inline-block;
+                    h4 {
+                        float: left;
+                        height: 40px;
+                        background: #fff;
+                        line-height: 40px;
+                        text-align: center;
+                        width: 105px;
+                        border: 1px solid #ccc;
+                        &.active {
+                            border-top: 3px solid #e1251b;
+                            border-left: none;
+                            border-right: none;
+                            border-bottom: none;
+                        }
+                    }
+                }
+                .bottom {
+                    padding: 10px;
+                    div {
+                        .clearfix();
+                        &.active {
+                            ul {
+                                &.goodsList1 {
+                                    li {
+                                        width: 50%;
+                                        border-bottom: 1px dashed #ededed;
+                                        line-height: 28px;
+                                        float: left;
+                                    }
+                                }
+                                &.goodsList2 {
+                                    margin: 5px 0 15px;
+                                    li {
+                                        border-bottom: 1px solid #ededed;
+                                        img {
+                                            width: 152px;
+                                        }
+                                        .title {
+                                            font-size: 16px;
+
+                                        }
+                                        .price {
+                                            font-size: 16px;
+                                            color: #c81623;
+                                            span {
+
+                                            }
+                                        }
+                                        .button {
+                                            margin-top: 5px;
+                                            margin-bottom: 5px;
+                                            
+                                            text-align: center;
+                                            a {
+                                                border: 1px solid #8c8c8c;
+                                                text-decoration: none;
+                                                color: #8c8c8c;
+                                                padding: 2px 14px;
+                                                line-height: 18px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+        }
+
+        .rightDetail {}
     }
 }
