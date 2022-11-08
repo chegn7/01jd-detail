@@ -1,5 +1,7 @@
 // 所有DOM和相关资源加载完毕执行的事件函数
 window.onload = function () {
+    // 缩略图的下标，初始位置为0
+    let thumbnailIdx = 0;
     // 路径导航的数据渲染
     navPathDataBind();
     function navPathDataBind() {
@@ -35,9 +37,10 @@ window.onload = function () {
             let bigPicDiv = document.createElement("div");
             bigPicDiv.id = "bigPic";
             let bigImg = document.createElement("img");
-            let smallUrl = smallPic.getElementsByTagName("img")[0].src;
+            let smallUrl = goodData.imagessrc[thumbnailIdx]["s"];
+            console.log(smallUrl);
             let idx = smallUrl.lastIndexOf("/");
-            let bigUrl = smallUrl.substring(0, idx) + smallUrl.substring(idx).replace("s", "b");
+            let bigUrl = goodData.imagessrc[thumbnailIdx]["b"];
             bigImg.src = bigUrl;
             // 大图框加大图片
             bigPicDiv.appendChild(bigImg);
@@ -88,5 +91,29 @@ window.onload = function () {
             li.appendChild(img);
             ul.appendChild(li);
         }
-    }   
+    }
+    // 点击切换缩略图
+    thumbnailClick();
+    function thumbnailClick() {
+        let lis = document.querySelectorAll("#picList > ul > li");
+        // 确定点击图片的下标位置
+        for (let i = 0; i < lis.length; i++) {
+            let li = lis[i];
+            // 回调函数，异步执行，在同步之后，此时i已==lis.length，因此不能直接将i作为下标
+            li.setAttribute("idx", i);
+            li.onclick = () => {
+                thumbnailIdx = li.getAttribute("idx");
+                console.log(thumbnailIdx);
+                // 切换小图
+                loadSmallPic();
+            };
+        }
+
+    }
+    loadSmallPic();
+    function loadSmallPic() {
+        let img = document.querySelector("#smallPic > img");
+        img.src = goodData.imagessrc[thumbnailIdx]["s"];
+    }
+
 }
