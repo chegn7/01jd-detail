@@ -76,5 +76,17 @@ window.onload = function () {
 
 
     }
-
+    // 渲染缩略图
+    thumbnailRender();
+    function thumbnailRender() {
+        let ul = document.querySelector("#picList > ul");
+        let imgs = goodData.imagessrc;
+        for (let i of imgs) {
+            let li = document.createElement("li");
+            let img = document.createElement("img");
+            img.src = i["s"];
+            li.appendChild(img);
+            ul.appendChild(li);
+        }
+    }   
 }
