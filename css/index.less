@@ -138,7 +138,7 @@
     .contentMain {
         width: 1200px;
         margin: 15px auto 0 auto;
-
+        .clearfix();
         #navPath {
             font-size: 0;
             padding: 9px 15px 9px 0;
@@ -247,6 +247,100 @@
                             }
                         }
                     }
+                }
+            }
+
+            #right {
+                width: 700px;
+                float: right;
+                #rightTop {
+                    h3 {
+                        font-size: 14px;
+                        line-height: 21px;
+                        margin-top: 15px;
+                    }
+                    p {
+                        color: #e12228;
+                        margin-top: 15px;
+                    }
+                    .priceWrap {
+                        margin-top: 10px;
+                        line-height: 28px;
+                        background: #fee9ec;
+                        padding: 7px;
+                        .priceTop {
+                            .clearfix();
+                            > span {
+                                margin-right: 15px;
+                                float: left;
+                            }
+                            .price {
+                                float: left;
+                                > span:nth-child(2) {
+                                    font-size: 24px;
+                                    color: #cc1122;
+                                    font-weight: bold;
+                                }
+                                > span {
+                                    font-size: 16px;
+                                    a {
+                                        font-size: 12px;
+                                        color: #cc1122;
+                                    }
+                                }
+                            }
+                            .commentCount {
+                                float: right;
+                                > span {
+                                    color: gray;
+                                }
+                            }
+                        }
+                        .priceBottom {
+                            width: 520px;
+                        line-height: 28px;
+                        span {
+                            color: #999;
+                            &:nth-child(1) {
+                                // 促销
+                                margin-right: 15px;
+                            }
+                            &:nth-child(2) {
+                                // 加价购
+                                background-color: #c81623;;
+                                color: #fff;
+                                padding: 3px;
+                            }
+                        }
+                        }
+                    }
+                    .support {
+                        padding-bottom: 5px;
+                        margin-top: 10px;
+                        line-height: 28px;
+                        span {
+                            &:first-child {
+                                margin-right: 15px;
+                            }
+                            &:last-child {
+                                color:#999;
+                            }
+                        }
+                    }
+                    .deliver {
+                        border-bottom: 1px solid #ededed;
+                        padding-bottom: 5px;
+                        line-height: 28px;
+                        span {
+                            &:first-child {
+                                margin-right: 15px;
+                            }
+                            &:last-child {
+                                color:#999;
+                            }
+                        }
+                    }
+
                 }
             }
         }

@@ -143,8 +143,6 @@ window.onload = function () {
             scrollClick(ul, -elementLength, lengthUnit, minLeft, maxLeft);
         };
     }
-
-    
     function scrollClick(scrollObj, step, unit, min, max) {
         let res = parseInt(scrollObj.style.left) + step;
         if (res < min) {
@@ -155,5 +153,43 @@ window.onload = function () {
         }
         console.log(res)
         scrollObj.style.left = res + unit;
+    }
+
+    // 商品标题、价格动态渲染
+    productDetailTitle();
+    function productDetailTitle() {
+        let rightTop = document.querySelector("#rightTop");
+        let productData = goodData.goodsDetail;
+        var s = `<h3>${productData.title}</h3>
+                    <p>${productData.recommend}</p>
+                    <div class="priceWrap">
+                        <div class="priceTop">
+                            <span>价格</span>
+                            <div class="price">
+                                <span>￥</span>
+                                <span>${productData.price}</span>
+                                <span><a>降价通知</a></span>
+                            </div>
+                            <div class="commentCount">
+                                <span>累计评价&nbsp;</span>
+                                <span>${productData.evaluateNum}</span>
+                            </div>
+                        </div>
+                        <div class="priceBottom">
+                            <span>促销</span>
+                            <span>${productData.promoteSales.type}</span>
+                            <span>${productData.promoteSales.content}</span>
+                        </div>
+                    </div>
+                    <div class="support">
+                        <span>支持</span>
+                        <span>${productData.support}</span>
+                    </div>
+                    <div class="deliver">
+                        <span>配送至</span>
+                        <span>${productData.address}</span>
+                    </div>`;
+        rightTop.innerHTML = s;
+
     }
 }
