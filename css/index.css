@@ -291,3 +291,33 @@
 #content .contentMain #center #right #rightTop .deliver span:last-child {
   color: #999;
 }
+#content .contentMain #center #right #rightBottom {
+  margin-top: 10px;
+  line-height: 28px;
+}
+#content .contentMain #center #right #rightBottom .selection dl {
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+#content .contentMain #center #right #rightBottom .selection dl::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+#content .contentMain #center #right #rightBottom .selection dl dt {
+  margin-right: 15px;
+  float: left;
+}
+#content .contentMain #center #right #rightBottom .selection dl dd {
+  float: left;
+  margin-right: 5px;
+  color: #666;
+  line-height: 24px;
+  padding: 2px 14px;
+  border-color: #eee #bbb #bbb #eee;
+  border-width: 1px;
+  border-style: solid;
+}
+#content .contentMain #center #right #rightBottom .selection dl dd:first-of-type {
+  color: red;
+}
