@@ -192,4 +192,26 @@ window.onload = function () {
         rightTop.innerHTML = s;
 
     }
+
+    // 商品规格
+    productSpecificationsRender();
+    function productSpecificationsRender() {
+        let productSpecification = goodData.goodsDetail.crumbData;
+        let selection = document.querySelector("#rightBottom .selection");
+        for (let i = 0; i < productSpecification.length; i++) {
+            let spec = productSpecification[i];
+            let dl = document.createElement("dl");
+            let dt = document.createElement("dt");
+            dt.innerText = spec.title;
+            dl.appendChild(dt);
+            
+            for (let j = 0; j < spec.data.length; j++) {
+                let dd = document.createElement("dd");
+                dd.innerText = spec.data[j].type;
+                dl.appendChild(dd);
+            }
+            selection.appendChild(dl);
+        }
+        
+    }
 }
