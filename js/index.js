@@ -292,7 +292,7 @@ window.onload = function () {
         // 在dl上记录价格变化。
         let dls = document.querySelectorAll("#rightBottom > div.selection > dl");
         for (let dl of dls) {
-            price += parseInt(dl.getAttribute("priceChange"));
+            price += Number(dl.getAttribute("priceChange"));
         }
         priceNode.innerText = price;
     }
