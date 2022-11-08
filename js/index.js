@@ -115,5 +115,45 @@ window.onload = function () {
         let img = document.querySelector("#smallPic > img");
         img.src = goodData.imagessrc[thumbnailIdx]["s"];
     }
+    // 点击左右按钮滚动图片
+    thumbnailButtonClick();
+    function thumbnailButtonClick() {
+        let lengthUnit = "px";
+        let leftBtn = document.querySelector("#leftBottom > a:first-child");
+        let rightBtn = document.querySelector("#leftBottom > a:last-child");
+        let li = document.querySelector("#picList > ul > li"), ul = document.querySelector("#picList > ul");
+        let liStyle = window.getComputedStyle(li);
+        let elementLength = (parseInt(liStyle.marginLeft) + parseInt(li.offsetWidth) + parseInt(liStyle.marginRight));
+        let viewLength = ul.offsetWidth;
+        let totalLength = elementLength * (document.querySelectorAll("#picList > ul > li").length);
+        // 每次点击，移动的步长为一个element的length，即左/右移一张图片
+        ul.style.position = "relative";
+        ul.style.left = "0px";
+        // left == 0 时，位于最左边
+        // left == viewLength - totalLenth时，位于最右边
+        // left的范围是 [Math.min(0, viewLength - totalLength), 0]
+        let minLeft = Math.min(0, viewLength - totalLength);
+        let maxLeft = 0;
+        let stepLength = elementLength;
+        // left 加，图片向右偏移，即向左滚动
+        leftBtn.onclick = () => {
+            scrollClick(ul, elementLength, lengthUnit, minLeft, maxLeft);
+        };
+        rightBtn.onclick = () => {
+            scrollClick(ul, -elementLength, lengthUnit, minLeft, maxLeft);
+        };
+    }
 
+    
+    function scrollClick(scrollObj, step, unit, min, max) {
+        let res = parseInt(scrollObj.style.left) + step;
+        if (res < min) {
+            res = min;
+            
+        } else if (res > max) {
+            res = max;
+        }
+        console.log(res)
+        scrollObj.style.left = res + unit;
+    }
 }
