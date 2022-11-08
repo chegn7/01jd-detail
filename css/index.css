@@ -295,6 +295,25 @@
   margin-top: 10px;
   line-height: 28px;
 }
+#content .contentMain #center #right #rightBottom #selected::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+#content .contentMain #center #right #rightBottom #selected #mark {
+  float: left;
+  height: 30px;
+  background: snow;
+  border: 1px solid #ddd;
+  padding: 0 20px;
+  margin-right: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+#content .contentMain #center #right #rightBottom #selected #mark a {
+  color: red;
+  margin-left: 20px;
+}
 #content .contentMain #center #right #rightBottom .selection dl {
   margin-top: 13px;
   margin-bottom: 13px;

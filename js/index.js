@@ -1,3 +1,4 @@
+
 // 所有DOM和相关资源加载完毕执行的事件函数
 window.onload = function () {
     // 缩略图的下标，初始位置为0
@@ -30,7 +31,6 @@ window.onload = function () {
         */
         let smallPic = document.querySelector("#smallPic");
         smallPic.onmouseenter = () => {
-            // console.log("test move in");
             // 创建元素
             let maskDiv = document.createElement("div");
             maskDiv.id = "mask";
@@ -217,15 +217,66 @@ window.onload = function () {
     prodectSpecificationColorToggle();
     function prodectSpecificationColorToggle() {
         let dls = document.querySelectorAll("#rightBottom > div.selection > dl");
-        for (let dl of dls) {
-            let dds = dl.querySelectorAll("dd");
-            for (let dd of dds) {
-                dd.onclick = () => {
+        // marks 存放点击的规格
+        let marks = new Array(dls.length);
+        for (let i = 0; i < dls.length; i++) {
+            let dds = dls[i].querySelectorAll("dd");
+            for (let j = 0; j < dds.length; j++) {
+                // 默认会点第一个值
+                if (j == 0) {
+                    marks[i] = dds[j].innerText;
+                }
+                dds[j].onclick = function()  {
                     for (let other of dds) {
                         other.style.color = "#666";
                     }
-                    dd.style.color = "red";
+                    dds[j].style.color = "red";
+                    marks[i] = dds[j].innerText;
+                    createSelectedByMarks(marks, document.querySelector("#rightBottom"));
                 };
+            }
+        }
+        createSelectedByMarks(marks, document.querySelector("#rightBottom"));
+    }
+
+    // 根据marks数组创建/修改selected标签
+    function createSelectedByMarks(marks, rightBottom) {
+        let selected = rightBottom.querySelector("#selected");
+        if (selected != null) rightBottom.removeChild(selected);
+        selected = document.createElement("div");
+        selected.id = "selected";
+        let idx = 0;
+        for (let e of marks) {
+            if (e && e.length > 0) {
+                let mark = document.createElement("div");
+                mark.id = "mark";
+                mark.innerText = e;
+                let aNode = document.createElement("a");
+                aNode.innerText = "X";
+                aNode.setAttribute("idx", idx);
+                mark.appendChild(aNode);
+                selected.appendChild(mark);
+            } else {
+                marks[idx] = null;
+            }
+            idx++;
+        }
+        rightBottom.insertBefore(selected, rightBottom.getElementsByClassName("selection")[0]);
+        // 获取a标签，点击X后删除a标签对应的mark
+        let aNodes = rightBottom.querySelectorAll("#selected > #mark > a");
+        for (let i = 0; i < aNodes.length; i++) {
+            let aNode = aNodes[i];
+            aNode.onclick = () => {
+                let deletedIdx = parseInt(aNode.getAttribute("idx"));
+                marks[deletedIdx] = null;
+                // 重绘selected
+                createSelectedByMarks(marks, rightBottom);
+                // 恢复该行标签的颜色
+                let dds = document.querySelectorAll("#rightBottom > div.selection > dl:nth-child(" + (deletedIdx + 1) + ")" + " dd");
+                dds[0].style.color = "red";
+                for (let ddIdx = 1; ddIdx < dds.length; ddIdx++) {
+                    dds[ddIdx].style.color = "#666";
+                }
             }
         }
     }
