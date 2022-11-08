@@ -38,7 +38,7 @@ window.onload = function () {
             bigPicDiv.id = "bigPic";
             let bigImg = document.createElement("img");
             let smallUrl = goodData.imagessrc[thumbnailIdx]["s"];
-            console.log(smallUrl);
+
             let idx = smallUrl.lastIndexOf("/");
             let bigUrl = goodData.imagessrc[thumbnailIdx]["b"];
             bigImg.src = bigUrl;
@@ -68,8 +68,8 @@ window.onload = function () {
                 maskDiv.style.left = leftDistance + "px";
                 maskDiv.style.top = topDistance + "px";
                 let ratio = 2;// 放大两倍
-                let bigLeftDist =bigPicDiv.clientWidth / 2 - (leftDistance + maskDiv.offsetWidth / 2) * ratio;
-                let bigTopDist =bigPicDiv.clientHeight / 2 - (topDistance + maskDiv.offsetHeight / 2) * ratio;
+                let bigLeftDist = bigPicDiv.clientWidth / 2 - (leftDistance + maskDiv.offsetWidth / 2) * ratio;
+                let bigTopDist = bigPicDiv.clientHeight / 2 - (topDistance + maskDiv.offsetHeight / 2) * ratio;
                 bigImg.style.position = "relative";
                 bigImg.style.left = bigLeftDist + "px";
                 bigImg.style.top = bigTopDist + "px";
@@ -103,7 +103,7 @@ window.onload = function () {
             li.setAttribute("idx", i);
             li.onclick = () => {
                 thumbnailIdx = li.getAttribute("idx");
-                console.log(thumbnailIdx);
+
                 // 切换小图
                 loadSmallPic();
             };
@@ -147,11 +147,10 @@ window.onload = function () {
         let res = parseInt(scrollObj.style.left) + step;
         if (res < min) {
             res = min;
-            
+
         } else if (res > max) {
             res = max;
         }
-        console.log(res)
         scrollObj.style.left = res + unit;
     }
 
@@ -204,7 +203,7 @@ window.onload = function () {
             let dt = document.createElement("dt");
             dt.innerText = spec.title;
             dl.appendChild(dt);
-            
+
             for (let j = 0; j < spec.data.length; j++) {
                 let dd = document.createElement("dd");
                 dd.innerText = spec.data[j].type;
@@ -212,6 +211,23 @@ window.onload = function () {
             }
             selection.appendChild(dl);
         }
-        
+
     }
+    // 点击商品规格之后切换颜色
+    prodectSpecificationColorToggle();
+    function prodectSpecificationColorToggle() {
+        let dls = document.querySelectorAll("#rightBottom > div.selection > dl");
+        for (let dl of dls) {
+            let dds = dl.querySelectorAll("dd");
+            for (let dd of dds) {
+                dd.onclick = () => {
+                    for (let other of dds) {
+                        other.style.color = "#666";
+                    }
+                    dd.style.color = "red";
+                };
+            }
+        }
+    }
+
 }
